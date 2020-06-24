@@ -27,3 +27,7 @@ const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&i
 const API_KEY = "api_key=[votreClé]"
 
 API key : 6f001d57bda6a9d2051b0740c79b1a9b
+
+how to make releases :  git tag -a v1.0.1 74c5ce9 -m 'first release'
+
+Documentation : Virtual dom , states , props et classes 

@@ -5,14 +5,30 @@ import React,{Component} from 'react'
 // return <input/>
 
 // }
-
 class SearchBar extends Component{
+    constructor(props){
 
+        super(props);
+        this.state = {searchText:"",placeHolder:"Cherchez votre film..."}
+    }
     render(){
+        
+        
+    return ( 
+        <div>
+        <input onChange = {this.handleChange.bind(this)} placeholder = {this.state.placeHolder}/>
+        {/* <p>{this.state.searchText}</p> */}
+        </div>
 
-        return <input/>
+)}
+
+    handleChange(event){
+
+        // console.log("============");
+        // console.log('une saisie',event.target.value);
+        // console.log("============");
+        this.setState({searchText:event.target.value});
     }
 
 }
-
 export default SearchBar;

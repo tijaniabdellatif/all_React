@@ -34,3 +34,7 @@ Documentation : Virtual dom , states , props et classes
 
 Documentation : the component LifeCycle https://fr.reactjs.org/docs/react-component.html
 
+
+==> les props sont jamais modifiable
+
+==> ajax avec axios

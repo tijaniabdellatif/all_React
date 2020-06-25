@@ -5,22 +5,21 @@ import React,{Component} from 'react'
 // return <input/>
 
 // }
-
 class SearchBar extends Component{
-
     constructor(props){
 
         super(props);
         this.state = {searchText:"",placeHolder:"Cherchez votre film..."}
     }
-
     render(){
-
-        return ( 
+        
+        
+    return ( 
         <div>
         <input onChange = {this.handleChange.bind(this)} placeholder = {this.state.placeHolder}/>
-        <p>{this.state.searchText}</p>
+        {/* <p>{this.state.searchText}</p> */}
         </div>
+
 )}
 
     handleChange(event){
@@ -32,5 +31,4 @@ class SearchBar extends Component{
     }
 
 }
-
 export default SearchBar;

@@ -28,7 +28,7 @@ const API_KEY = "api_key=[votreClé]"
 
 API key : 6f001d57bda6a9d2051b0740c79b1a9b
 
-how to make releases :  git tag -a v1.0.1 74c5ce9 -m 'first release'
+how to make releases :  git tag -a v1.0.6 a96eba4 -m 'list_video_img'
 
 Documentation : Virtual dom , states , props et classes 
 
@@ -40,3 +40,8 @@ Documentation : the component LifeCycle https://fr.reactjs.org/docs/react-compon
 ==> ajax avec axios
 
 ==> 2 state , deux render()
+
+
+URL : teaseer => "https://www.youtube.ma/embed/
+
+URL base : ${API_END_POINT}movie/[movieId]?append_to_response=videos&include_adult=false&${API_KEY}

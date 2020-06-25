@@ -26,13 +26,41 @@ class App extends Component {
             this.setState({
                 movieList: response.data.results.slice(1,6),
                 currentMovie: response.data.results[1]
+            },function(){
+
+                this.applyVideotoCurrentMovie(); //state est mise a jour dans une callback function
+
             });
-            console.log({
-                movieList: response.data.results
-            });
+            // console.log({
+            //     movieList: response.data.results
+            // });
 
 
         }.bind(this));
+    }
+
+    applyVideotoCurrentMovie(){
+            
+   
+               
+         axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}?${API_KEY}&append_to_response=videos&include_adult=false`).then(function (response) {
+               
+            // console.log('================');
+            // console.log('',response);
+            // console.log("==============");
+            const YoutubeKey = response.data.videos.results[0].key;
+            let newCurrentMovieState = this.state.currentMovie;
+            newCurrentMovieState.videoId = YoutubeKey;
+            this.setState({currentMovie: newCurrentMovieState});
+              console.log('================');
+              console.log('',newCurrentMovieState);
+             console.log("==============");
+            
+
+
+         }.bind(this));
+
+
     }
 
     render(){

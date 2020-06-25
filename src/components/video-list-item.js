@@ -6,7 +6,7 @@ const VideoListItem = ({movie}) =>{
   
     return <li>
             <img height="100px" width="100px" src={`${IMAGE_BASE_URL}${movie.poster_path}`}/>
-           <h3>{movie.title}</h3> 
+           <h3>{movie.original_title}</h3> 
         
         </li>
 }

@@ -3,6 +3,7 @@ import SearchBar from '../components/search-bar'
 import VideoList from './list-video'
 import axios from 'axios'
 import VideoDetail from '../components/video-details'
+import Video from '../components/video'
 
 const API_END_POINT = "https://api.themoviedb.org/3/"
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&append_to_response=images"
@@ -40,20 +41,19 @@ class App extends Component {
     }
 
     applyVideotoCurrentMovie(){
-            
-   
                
          axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}?${API_KEY}&append_to_response=videos&include_adult=false`).then(function (response) {
                
-            // console.log('================');
-            // console.log('',response);
-            // console.log("==============");
+            console.log('=========RESPONSE=======');
+            console.log('',response);
+            console.log("==============");
             const YoutubeKey = response.data.videos.results[0].key;
+            console.log(YoutubeKey);
             let newCurrentMovieState = this.state.currentMovie;
             newCurrentMovieState.videoId = YoutubeKey;
             this.setState({currentMovie: newCurrentMovieState});
               console.log('================');
-              console.log('',newCurrentMovieState);
+              console.log('', newCurrentMovieState);
              console.log("==============");
             
 
@@ -75,8 +75,9 @@ class App extends Component {
 
         return <div>
             <SearchBar/>
+            <Video videoId={this.state.currentMovie.videoId}/>
             {renderVideoList()}
-            <VideoDetail title={this.state.currentMovie.title} description={this.state.currentMovie.overview}/>
+            <VideoDetail title={this.state.currentMovie.original_title} description={this.state.currentMovie.overview}/>
             </div>
     }
  

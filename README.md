@@ -1,5 +1,4 @@
 # all_React :
-
 ## api URL : 
 URL TheMovieDB
 Les films les plus populaires du moment en français.
@@ -13,8 +12,7 @@ https://api.themoviedb.org/3/movie/idDeFilm/recommendations?api_key=votreClé&la
 Rechercher un film par son titre en français
 
 https://api.themoviedb.org/3/search/movie?api_key=votreClé&query=Un+Titre+De+film&language=fr&include_adult=false
-
-Rechercher des url de video pour un id de film en particulier (en anglais)
+chercher des url de video pour un id de film en particulier (en anglais)
 
 Note : si vous appliquez un filtre avec language=fr vous aurez malheureusement moins de résultats qu'en anglais.
 
@@ -28,7 +26,7 @@ const API_KEY = "api_key=[votreClé]"
 
 API key : 6f001d57bda6a9d2051b0740c79b1a9b
 
-how to make releases :  git tag -a v1.0.6 a96eba4 -m 'list_video_img'
+how to make releases :  git tag -a v1.0.7 a1e6210 -m 'Youtube_id'
 
 Documentation : Virtual dom , states , props et classes 
 
@@ -45,3 +43,6 @@ Documentation : the component LifeCycle https://fr.reactjs.org/docs/react-compon
 URL : teaseer => "https://www.youtube.ma/embed/
 
 URL base : ${API_END_POINT}movie/[movieId]?append_to_response=videos&include_adult=false&${API_KEY}
+
+
+a1e62109589a678e7c16c4d5e8d2ceeb710b638f

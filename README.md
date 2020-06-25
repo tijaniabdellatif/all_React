@@ -38,3 +38,5 @@ Documentation : the component LifeCycle https://fr.reactjs.org/docs/react-compon
 ==> les props sont jamais modifiable
 
 ==> ajax avec axios
+
+==> 2 state , deux render()

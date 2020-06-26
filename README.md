@@ -3,7 +3,7 @@
 ## api URL : 
 
  https://www.themoviedb.org/ 
- 
+
 ## Les films les plus populaires du moment en français.
 
 https://api.themoviedb.org/3/discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&api_key=votreClé
@@ -46,3 +46,5 @@ the component LifeCycle https://fr.reactjs.org/docs/react-component.html
 ## May be Useful: 
 
  https://github.com/MicheleBertoli/css-in-js
+
+ ## Suivi : 

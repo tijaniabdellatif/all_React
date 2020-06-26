@@ -10,9 +10,14 @@ const hStyle = {
 
 };
 
-const VideoListItem = ({movie}) =>{
-  
-    return <li className="list-group-item">
+const LiStyle = {
+
+        cursor : 'pointer'
+}
+
+const VideoListItem = (props) =>{
+     const {movie} = props;
+    return <li className = "list-group-item" style={LiStyle} onClick={handlerClick}>
             <div className="media">
                      <div className="media-left">
                   <img className="media-object img-rounded" height="100px" width="100px" src={`${IMAGE_BASE_URL}${movie.poster_path}`}/>
@@ -28,6 +33,14 @@ const VideoListItem = ({movie}) =>{
          
         
         </li>
+      
+
+        function handlerClick(){
+             
+                props.callback(movie);
+
+
+        }
 }
 
 export default VideoListItem;

@@ -78,13 +78,21 @@ class App extends Component {
 
     }
 
+    receiveCall(movie){
+
+           this.setState({currentMovie:movie},function(){
+
+                   this.applyVideotoCurrentMovie();
+           });
+    }
+
     render(){
 
         const renderVideoList = () =>{
 
             if(this.state.movieList.length >= 5){
 
-                return <VideoList movieList = {this.state.movieList}/>
+                return <VideoList movieList = {this.state.movieList} callback={this.receiveCall.bind(this)}/>
             }
         }
 
@@ -109,7 +117,6 @@ class App extends Component {
             {renderVideoList()}
             </diV>
             </div>
-            
             </div>
     }
  

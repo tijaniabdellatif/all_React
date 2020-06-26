@@ -17,8 +17,13 @@ class SearchBar extends Component
         
     return ( 
         <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-8 input-group">
         <input type="text" className="form-control input-lg" onChange = {this.handleChange.bind(this)} placeholder = {this.state.placeHolder}/>
+        <span className="input-group-btn">
+
+            <button className="btn btn-secondary" onClick={this.handleBtnClick.bind(this)}>GO</button>
+        </span>
+        
             </div>
         {/* <p>{this.state.searchText}</p> */}
         </div>
@@ -31,6 +36,15 @@ class SearchBar extends Component
         // console.log('une saisie',event.target.value);
         // console.log("============");
         this.setState({searchText:event.target.value});
+    }
+
+    handleBtnClick(event){
+
+            //    console.log("============");
+            //    console.log('une saisie',event.target.value);
+            //    console.log("============");
+
+            this.props.callback(this.state.searchText);
     }
 
 }

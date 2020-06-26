@@ -7,7 +7,8 @@ import Video from '../components/video'
 
 const API_END_POINT = "https://api.themoviedb.org/3/"
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&append_to_response=images"
-const API_KEY = "api_key=6f001d57bda6a9d2051b0740c79b1a9b"
+const API_KEY = "api_key=6f001d57bda6a9d2051b0740c79b1a9b";
+const SEARCH_URL = "search/movie?language=fr&include_adult=false";
 
 const divStyle = {
  
@@ -78,12 +79,36 @@ class App extends Component {
 
     }
 
-    receiveCall(movie){
+    onClickListItem(movie) {
 
            this.setState({currentMovie:movie},function(){
 
                    this.applyVideotoCurrentMovie();
            });
+    }
+
+    onClickButton(searchText){
+
+        // console.log('',searchText);
+
+        if(searchText){
+  axios.get(`${API_END_POINT}${SEARCH_URL}&${API_KEY}&query=${searchText}`).then(function(response) {
+
+             if(response.data && response.data.results[0]){
+                  
+                if(response.data.results[0].id != this.state.currentMovie.id){
+
+                        this.setState({currentMovie:response.data.results[0]},function(){
+                              
+                            this.applyVideotoCurrentMovie();
+
+                        });
+                }
+
+             }
+
+  }.bind(this));
+        }
     }
 
     render(){
@@ -92,13 +117,13 @@ class App extends Component {
 
             if(this.state.movieList.length >= 5){
 
-                return <VideoList movieList = {this.state.movieList} callback={this.receiveCall.bind(this)}/>
+                return <VideoList movieList = {this.state.movieList} callback={this.onClickListItem.bind(this)}/>
             }
         }
 
         return <div>
             <div className="search_bar" style={divStyle}>
-            <SearchBar/>
+            <SearchBar callback={this.onClickButton.bind(this)}/>
             </div>
             <div className="row">
                 <diV className="col-md-8">

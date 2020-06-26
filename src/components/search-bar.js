@@ -10,7 +10,14 @@ class SearchBar extends Component
     constructor(props){
 
         super(props);
-        this.state = {searchText:"",placeHolder:"Cherchez votre film..."}
+        this.state = {
+            searchText: "",
+            placeHolder: "Cherchez votre film...",
+            intervalRequest: 1000,
+            lockRequest: false
+        }
+      
+
     }
     render(){
         
@@ -36,6 +43,15 @@ class SearchBar extends Component
         // console.log('une saisie',event.target.value);
         // console.log("============");
         this.setState({searchText:event.target.value});
+        if(!this.state.lockRequest){
+
+            this.setState({lockRequest:true});
+
+            setTimeout(function(){
+                 this.search();
+
+            }.bind(this),this.state.intervalRequest)
+        }
     }
 
     handleBtnClick(event){
@@ -43,8 +59,13 @@ class SearchBar extends Component
             //    console.log("============");
             //    console.log('une saisie',event.target.value);
             //    console.log("============");
+            this.search();
+    }
 
-            this.props.callback(this.state.searchText);
+    search()
+    {
+this.props.callback(this.state.searchText);
+this.setState({lockRequest:false});
     }
 
 }

@@ -9,6 +9,21 @@ const API_END_POINT = "https://api.themoviedb.org/3/"
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&append_to_response=images"
 const API_KEY = "api_key=6f001d57bda6a9d2051b0740c79b1a9b"
 
+const divStyle = {
+ 
+    marginTop: 50,
+    marginBottom: 30
+
+};
+
+const VideoDet = {
+
+   backgroundColor:'#E0E0E0',
+   marginTop:40
+
+}
+
+
 class App extends Component {
 
     constructor(props){
@@ -74,10 +89,27 @@ class App extends Component {
         }
 
         return <div>
+            <div className="search_bar" style={divStyle}>
             <SearchBar/>
+            </div>
+            <div className="row">
+                <diV className="col-md-8">
             <Video videoId={this.state.currentMovie.videoId}/>
+            <div style={VideoDet}>
+            <VideoDetail title={
+                this.state.currentMovie.original_title
+            }
+            description = {
+                this.state.currentMovie.overview
+            }
+            />
+            </div>
+            </diV>
+             <diV  className="col-md-4">
             {renderVideoList()}
-            <VideoDetail title={this.state.currentMovie.original_title} description={this.state.currentMovie.overview}/>
+            </diV>
+            </div>
+            
             </div>
     }
  

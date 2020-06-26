@@ -5,7 +5,8 @@ import React,{Component} from 'react'
 // return <input/>
 
 // }
-class SearchBar extends Component{
+class SearchBar extends Component
+{
     constructor(props){
 
         super(props);
@@ -15,8 +16,10 @@ class SearchBar extends Component{
         
         
     return ( 
-        <div>
-        <input onChange = {this.handleChange.bind(this)} placeholder = {this.state.placeHolder}/>
+        <div className="row">
+            <div className="col-md-8">
+        <input type="text" className="form-control input-lg" onChange = {this.handleChange.bind(this)} placeholder = {this.state.placeHolder}/>
+            </div>
         {/* <p>{this.state.searchText}</p> */}
         </div>
 
